@@ -1,5 +1,6 @@
 import * as types from '../constants/ActionTypes'
 
-export const GetInitialData = () => ({
-    type: types.LOAD_PAGE
+export const InsertInitialData = (initalData) => ({
+    type: types.LOAD_PAGE,
+    payload: initalData
 })

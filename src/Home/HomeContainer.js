@@ -1,13 +1,29 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 import Home from './Home'
+import { InsertInitialData } from '../actions/LoadingActions'
+
 
 class HomeContainer extends React.Component {
+
+  componentDidMount() {
+    this.props.loadInitialData(returnHardCodedData())
+  }
 
   render() {
     const data = returnHardCodedData()
     return (<Home data={data} />)
   }
 }
+
+const mapStateToProps = state => ({
+  initalData: state.initalData
+})
+
+const mapDispatchToProps = dispatch => ({
+  loadInitialData: initialData => dispatch(InsertInitialData(initialData))
+})
 
 function returnHardCodedData() {
     var data = [
@@ -51,5 +67,5 @@ function returnHardCodedData() {
     return data
 }
   
-export default HomeContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
   
