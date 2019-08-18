@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import LoadingReducer from './LoadingReducer'
+import Loading from './LoadingReducer'
 
 export default combineReducers({
-    LoadingReducer
+    Loading
 })

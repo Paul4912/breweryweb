@@ -4,17 +4,16 @@ const initialState = {
     initialData: null
 }
 
-const LoadingReducer = (state = initialState, action) => {
+const Loading = (state = initialState, action) => {
     switch (action.type) {
         case types.LOAD_PAGE:
             return {
                 ...state,
-                initialData: action.payload
+                initialData: action.initialData
             }
-
         default:
             return state
     }
 }
 
-export default LoadingReducer
+export default Loading

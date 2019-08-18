@@ -1,27 +1,28 @@
-import React from 'react'
+import React, { useEffect, useCallback } from 'react'
 import { connect } from 'react-redux'
 
 import Home from './Home'
 import { InsertInitialData } from '../actions/LoadingActions'
+import { callGetProducts } from '../utilities/ApiCalls'
+import { ClipLoader } from 'react-spinners';
 
+function HomeContainer(props) {
+  const {initialData, loadInitialData} = props
 
-class HomeContainer extends React.Component {
+  useEffect(() => {
+    loadInitialData(returnHardCodedData())
+    // const result = callGetProducts()
+    // loadInitialData(result)
+  }, [])
 
-  componentDidMount() {
-    this.props.loadInitialData(returnHardCodedData())
-  }
-
-  render() {
-    const data = returnHardCodedData()
-    return (<Home data={data} />)
-  }
+  return(initialData ? <Home data={initialData} /> : <ClipLoader/>)
 }
 
 const mapStateToProps = state => ({
-  initalData: state.initalData
+  initialData: state.Loading.initialData
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   loadInitialData: initialData => dispatch(InsertInitialData(initialData))
 })
 
@@ -68,4 +69,3 @@ function returnHardCodedData() {
 }
   
 export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
-  

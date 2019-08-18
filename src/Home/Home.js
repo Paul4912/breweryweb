@@ -1,6 +1,7 @@
 import React from 'react'
-import Table from '../Table'
+import Table from '../utilities/Table'
 import { Link } from 'react-router-dom'
+
 
 function Home(props) {
   return (
