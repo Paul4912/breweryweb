@@ -2,13 +2,17 @@ import * as endpoints from '../constants/endpoints'
 
 export const callApi = (url, options) =>
     fetch(url, options)
-    .then(data => console.log(data))
-    .then(res => {
-        return res.json()
+    .then(function(response) {
+        if(response.ok) {
+            console.log(response)
+        } else {
+            console.log('Network response was not ok.');
+        }
+        return response.json()
     })
     .catch(console.log)
 
-export const callGetProducts = () => {
+export const callGetProducts = async () => {
     return callApi(endpoints.BASE_URL, {
         method: 'GET',
         headers: {

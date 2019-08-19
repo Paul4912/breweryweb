@@ -11,9 +11,10 @@ function HomeContainer(props) {
 
   useEffect(() => {
     loadInitialData(returnHardCodedData())
-    // const result = callGetProducts()
-    // loadInitialData(result)
-  }, [])
+    //const result = callGetProducts()
+    //console.log(result)
+    //loadInitialData(result)
+  }, [loadInitialData])
 
   return(initialData ? <Home data={initialData} /> : <ClipLoader/>)
 }
