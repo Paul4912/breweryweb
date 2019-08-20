@@ -1,6 +1,6 @@
 import React from 'react'
 import EnterProduct from './EnterProduct'
-import { callCreateProduct } from '../utilities/ApiCalls'
+import { callCreateProduct } from '../../utilities/ApiCalls'
 
 
 function EnterProductContainer() {

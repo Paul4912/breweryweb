@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { ClipLoader } from 'react-spinners';
 
 import Home from './Home'
-import { InsertInitialData } from '../actions/LoadingActions'
-import { callGetProducts } from '../utilities/ApiCalls'
+import { InsertInitialData } from '../../actions/LoadingActions'
+import { callGetProducts } from '../../utilities/ApiCalls'
 
 function HomeContainer(props) {
   const {initialData, loadInitialData} = props

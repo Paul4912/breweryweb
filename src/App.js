@@ -1,6 +1,6 @@
 import { Route, BrowserRouter as Router } from 'react-router-dom'
-import HomeContainer from './Home/HomeContainer';
-import EnterProductContainer from './EnterProduct/EnterProductContainer';
+import HomeContainer from './features/Home/HomeContainer';
+import EnterProductContainer from './features/EnterProduct/EnterProductContainer';
 import React from 'react'
 import './App.scss'
 
