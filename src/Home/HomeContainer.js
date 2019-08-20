@@ -1,19 +1,17 @@
-import React, { useEffect, useCallback } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import { ClipLoader } from 'react-spinners';
 
 import Home from './Home'
 import { InsertInitialData } from '../actions/LoadingActions'
 import { callGetProducts } from '../utilities/ApiCalls'
-import { ClipLoader } from 'react-spinners';
 
 function HomeContainer(props) {
   const {initialData, loadInitialData} = props
 
   useEffect(() => {
-    loadInitialData(returnHardCodedData())
-    //const result = callGetProducts()
-    //console.log(result)
-    //loadInitialData(result)
+    //loadInitialData(returnHardCodedData())
+    callGetProducts().then(loadInitialData)
   }, [loadInitialData])
 
   return(initialData ? <Home data={initialData} /> : <ClipLoader/>)

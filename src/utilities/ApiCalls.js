@@ -1,24 +1,37 @@
 import * as endpoints from '../constants/endpoints'
 
-export const callApi = (url, options) =>
-    fetch(url, options)
-    .then(function(response) {
+export async function callApi(url, options) {
+    try {
+        const response = await fetch(url, options)
         if(response.ok) {
             console.log(response)
         } else {
             console.log('Network response was not ok.');
         }
-        return response.json()
-    })
-    .catch(console.log)
+        return await response.json()
+    } catch(err) {
+        console.log(err)
+    }
+}
 
-export const callGetProducts = async () => {
-    return callApi(endpoints.BASE_URL, {
+export async function callGetProducts() {
+    return await callApi(endpoints.GET_PRODUCTS, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
             'x-functions-key': endpoints.FUNCTION_KEY
         }
+    })
+}
+
+export async function callCreateProduct(product) {
+    return await callApi(endpoints.GET_PRODUCTS, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-functions-key': endpoints.FUNCTION_KEY
+        },
+        body: product
     })
 }
 
