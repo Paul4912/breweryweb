@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { ClipLoader } from 'react-spinners';
+import Spinner from 'react-bootstrap/Spinner'
 
 import Home from './Home'
 import { InsertInitialData } from '../../actions/LoadingActions'
@@ -14,7 +14,7 @@ function HomeContainer(props) {
     callGetProducts().then(loadInitialData)
   }, [loadInitialData])
 
-  return(initialData ? <Home data={initialData} /> : <ClipLoader/>)
+  return(initialData ? <Home data={initialData} /> : <Spinner animation="border" />)
 }
 
 const mapStateToProps = state => ({
