@@ -8,6 +8,7 @@ function EnterProductContainer() {
 }
 
 function submitProduct(product) {
+    console.log(product)
     callCreateProduct(product)
 }
   
