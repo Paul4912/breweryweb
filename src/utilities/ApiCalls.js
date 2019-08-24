@@ -4,7 +4,7 @@ export async function callApi(url, options) {
     try {
         const response = await fetch(url, options)
         if(response.ok) {
-            console.log(response)
+            console.log('Response is ok')
         } else {
             console.log('Network response was not ok.');
         }
@@ -25,13 +25,23 @@ export async function callGetProducts() {
 }
 
 export async function callCreateProduct(product) {
-    return await callApi(endpoints.GET_PRODUCTS, {
+    return await callApi(endpoints.CREATE_PRODUCTS, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'x-functions-key': endpoints.FUNCTION_KEY
         },
-        body: product
+        body: JSON.stringify(product)
+    })
+}
+
+export async function callUploadImage(productId, image) {
+    return await callApi(endpoints.GET_PRODUCTS + productId + '/image', {
+        method: 'POST',
+        headers: {
+            'x-functions-key': endpoints.FUNCTION_KEY
+        },
+        body: image
     })
 }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Form } from 'react-final-form'
 import { Field } from 'react-final-form-html5-validation'
 import Styles from './Styles'
@@ -6,6 +6,17 @@ import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
 function EnterProduct(props) {
+  const [state, setState] = useState({file:null})
+
+  const fileSelectedHandler = event => {
+    event.preventDefault();
+    setState({file:event.target.files[0]})
+  }
+
+  const readImageBeforeSubmit = (values) => {
+    props.submit(values, state.file)
+  }
+
   return (
     <div className="EnterProduct">
       <div className='HomeButton'>
@@ -18,7 +29,7 @@ function EnterProduct(props) {
     <Styles>
       <h1>List a Product</h1>
       <Form
-        onSubmit={props.submit}
+        onSubmit={readImageBeforeSubmit}
         render={({ handleSubmit, form, submitting, pristine, values }) => (
           <form onSubmit={handleSubmit}>
             <div>
@@ -54,8 +65,16 @@ function EnterProduct(props) {
               />
             </div>
             <div>
-              <label>Description</label>
+              <label>Short Description</label>
               <Field name="description" component="textarea" placeholder="Optional" maxLength='68'/>
+            </div>
+            <div>
+            <label>Product Image</label>
+              <input
+                type="file"
+                onChange = {fileSelectedHandler}
+                accept=".jpg, .jpeg, .png"
+              />
             </div>
             <div className="buttons">
               <button type="submit" disabled={submitting || pristine}>

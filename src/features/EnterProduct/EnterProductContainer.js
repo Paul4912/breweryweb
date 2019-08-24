@@ -1,16 +1,33 @@
-import React from 'react'
+import React, {useState} from 'react'
+import Spinner from 'react-bootstrap/Spinner'
+import { Redirect } from 'react-router';
+
 import EnterProduct from './EnterProduct'
-import { callCreateProduct } from '../../utilities/ApiCalls'
+import { callCreateProduct, callUploadImage } from '../../utilities/ApiCalls'
 
 
-function EnterProductContainer() {
-    return (<EnterProduct submit={submitProduct} />)
-}
+function EnterProductContainer(props) {
+    const [state, setState] = useState({loading:false})
+    const [route, setRoute] = useState({fire:false})
 
-function submitProduct(product) {
-    console.log(product)
-    callCreateProduct(product)
+    const submitProduct = async (product, file) => {
+        setState({loading:true})
+        const response = await callCreateProduct(product)
+        if(response.id && file) {
+            const fd = new FormData()
+            fd.append('image', file, file.name)
+            await callUploadImage(product.id, fd)
+        }
+        setState({loading:false})
+        setRoute({fire:true})
+    }
+
+    if(route.fire) {
+        console.log("yo")
+        return <Redirect to='/' />
+    }
+    return (state.loading ? <Spinner animation="border" /> : <EnterProduct submit={submitProduct} />)
 }
   
-export default EnterProductContainer;
+export default EnterProductContainer
   
