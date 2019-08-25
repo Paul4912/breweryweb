@@ -13,7 +13,10 @@ function App() {
     <Navbar bg="dark" variant="dark">
     <Navbar.Brand href="/">Home</Navbar.Brand>
     <Nav className="mr-auto">
-      <Nav.Link href="/">About Us</Nav.Link>
+      <Nav.Link href=""></Nav.Link>
+      <Nav.Link href="">About Us</Nav.Link>
+      <Nav.Link href=""></Nav.Link>
+      <Nav.Link href="">Contact:</Nav.Link>
       <Nav.Link href="">0412 123 123</Nav.Link>
       <Nav.Link href="">BrewDirect@gmail.com</Nav.Link>
     </Nav>
