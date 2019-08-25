@@ -1,17 +1,19 @@
 .HomePage {
-    
-    .EnterProductButton {
-        position: absolute;
-        right: 0px;
-        top: 0px;
-        margin-right: 2em;
-        margin-top: 2em;
-    }
 
-    h1 {
-        text-align: center;
-        font-size: 2em;
-        margin-top: 1em;
+    .home-banner {
+        height: 14em;
+        width: 100%;
         margin-bottom: 2em;
+
+        .home-logo {
+            height: 10em;
+            width: 14em;
+            margin: 2em;
+        }
+
+        button {
+            margin-left: 2em;
+        }
+
     }
 }

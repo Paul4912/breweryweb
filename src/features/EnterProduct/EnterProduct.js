@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import { Form } from 'react-final-form'
 import { Field } from 'react-final-form-html5-validation'
 import Styles from './Styles'
-import { Link } from 'react-router-dom'
-import Button from 'react-bootstrap/Button'
 
 function EnterProduct(props) {
   const [state, setState] = useState({file:null})
@@ -19,13 +17,6 @@ function EnterProduct(props) {
 
   return (
     <div className="EnterProduct">
-      <div className='HomeButton'>
-        <Link to="/">
-          <Button variant="primary" size="lg">
-            Home
-          </Button>
-        </Link>
-      </div>
     <Styles>
       <h1>List a Product</h1>
       <Form
