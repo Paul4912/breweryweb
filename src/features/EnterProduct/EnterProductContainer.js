@@ -16,14 +16,14 @@ function EnterProductContainer(props) {
         if(response.id && file) {
             const fd = new FormData()
             fd.append('image', file, file.name)
-            await callUploadImage(product.id, fd)
+            console.log(fd)
+            await callUploadImage(response.id, fd)
         }
         setState({loading:false})
         setRoute({fire:true})
     }
 
     if(route.fire) {
-        console.log("yo")
         return <Redirect to='/' />
     }
     return (state.loading ? <Spinner animation="border" /> : <EnterProduct submit={submitProduct} />)

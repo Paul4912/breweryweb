@@ -27,7 +27,7 @@ function EnterProduct(props) {
               <label>Product Name</label>
               <Field
                 required
-                name="product"
+                name="name"
                 component="input"
                 type="text"
                 placeholder=""
@@ -37,7 +37,7 @@ function EnterProduct(props) {
               <label>Price</label>
               <Field
                 required
-                pattern='[0-9].+'
+                pattern='^\d*\.?\d*$'
                 name="price"
                 component="input"
                 type="text"
@@ -48,7 +48,7 @@ function EnterProduct(props) {
               <label>Stock</label>
               <Field
                 required
-                pattern='[0-9].+'
+                pattern='[0-9]+'
                 name="stock"
                 component="input"
                 type="text"
