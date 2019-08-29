@@ -7,7 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import { makeStyles } from "@material-ui/core/styles";
 
-import CardBootstrap from './CardBootstrap'
+import CardBootstrapContainer from './CardBootstrapContainer';
 
 function Home(props) {
 
@@ -33,7 +33,7 @@ function Home(props) {
   const classes = useStyles();
 
   const cards = props.data.map(element => {
-    return <CardBootstrap data={element} />
+    return <CardBootstrapContainer data={element} />
   })
 
   const banner = <div className='home-banner'>

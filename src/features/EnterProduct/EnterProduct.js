@@ -56,6 +56,17 @@ function EnterProduct(props) {
               />
             </div>
             <div>
+              <label>Container</label>
+              <Field required name="container" component="select" type="text" placeholder="">
+                <option value="Keg50L">Keg50L</option>
+                <option value="Keg25L">Keg25L</option>
+                <option value="Keg20L">Keg20L</option>
+                <option value="Case(24)">Case(24)</option>
+                <option value="Case(10)">Case(10)</option>
+                <option value="Other">Other(Specify in description)</option>
+              </Field>
+            </div>
+            <div>
               <label>Short Description</label>
               <Field name="description" component="textarea" placeholder="Optional" maxLength='68'/>
             </div>

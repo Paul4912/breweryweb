@@ -45,3 +45,13 @@ export async function callUploadImage(productId, image) {
     })
 }
 
+export async function callUpdateProduct(product) {
+    return await callApi(endpoints.CREATE_PRODUCTS + product.id, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-functions-key': endpoints.FUNCTION_KEY
+        },
+        body: JSON.stringify(product)
+    })
+}

@@ -2,7 +2,7 @@ import React from 'react'
 import Card from 'react-bootstrap/Card'
 
 function CardBootstrap(props) {
-    const data = props.data
+    const { data, clickModify } = props
     const imageUri = data.image ? data.image.large.uri : null
     return (
         <div className='CardBootstrap'>
@@ -17,10 +17,11 @@ function CardBootstrap(props) {
                 <Card.Text>
                     Description: {data["description"]}   
                 </Card.Text>
+                <button onClick={() => clickModify(data)} class="btn btn-dark">Modify</button>
             </Card.Body>
           </Card>
         </div>
-      );
+      )
 }
 
 export default CardBootstrap;

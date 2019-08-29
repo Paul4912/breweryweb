@@ -16,7 +16,6 @@ function EnterProductContainer(props) {
         if(response.id && file) {
             const fd = new FormData()
             fd.append('image', file, file.name)
-            console.log(fd)
             await callUploadImage(response.id, fd)
         }
         setState({loading:false})
