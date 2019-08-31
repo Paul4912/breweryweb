@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import { Form } from 'react-final-form'
+import { Form, FormSpy } from 'react-final-form'
 import { Field } from 'react-final-form-html5-validation'
 import Styles from '../../utilities/bootstrap/Styles'
 
-function EnterProduct(props) {
+function ModifyProduct(props) {
   const [state, setState] = useState({file:null})
+  const { submit, currentProduct } = props
 
   const fileSelectedHandler = event => {
     event.preventDefault();
@@ -12,14 +13,15 @@ function EnterProduct(props) {
   }
 
   const readImageBeforeSubmit = (values) => {
-    props.submit(values, state.file)
+    submit(values, state.file)
   }
 
   return (
-    <div className="EnterProduct">
+    <div className="ModifyProduct">
     <Styles>
-      <h1>List a Product</h1>
+      <h1>Modify a Product</h1>
       <Form
+        initialValues={currentProduct} 
         onSubmit={readImageBeforeSubmit}
         render={({ handleSubmit, form, submitting, pristine, values }) => (
           <form onSubmit={handleSubmit}>
@@ -93,4 +95,4 @@ function EnterProduct(props) {
 
 
 
-export default EnterProduct;
+export default ModifyProduct;

@@ -45,8 +45,8 @@ export async function callUploadImage(productId, image) {
     })
 }
 
-export async function callUpdateProduct(product) {
-    return await callApi(endpoints.CREATE_PRODUCTS + product.id, {
+export async function callUpdateProduct(product, id) {
+    return await callApi(endpoints.GET_PRODUCTS + id, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',

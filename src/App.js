@@ -5,6 +5,7 @@ import React from 'react'
 
 import HomeContainer from './features/Home/HomeContainer';
 import EnterProductContainer from './features/EnterProduct/EnterProductContainer';
+import ModifyProductContainer from './features/ModifyProduct/ModifyProductContainer';
 import './App.scss'
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <div className="Routing">
           <Route exact path="/" component={HomeContainer} />
           <Route path="/EnterProduct" component={EnterProductContainer} />
+          <Route path="/ModifyProduct" component={ModifyProductContainer} />
         </div>
     </Router>
     </div>) 
