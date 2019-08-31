@@ -17,7 +17,7 @@ function CardBootstrap(props) {
                 <Card.Text>
                     Description: {data["description"]}   
                 </Card.Text>
-                <button onClick={() => clickModify(data)} class="btn btn-dark">Modify</button>
+                <button onClick={() => clickModify(data)} className="btn btn-dark">Modify</button>
             </Card.Body>
           </Card>
         </div>

@@ -5,7 +5,7 @@ import Styles from '../../utilities/bootstrap/Styles'
 
 function Login(props) {
 
-  const readImageBeforeSubmit = (values) => {
+  const login = (values) => {
     props.submitLogin(values)
   }
 
@@ -14,7 +14,7 @@ function Login(props) {
     <Styles>
       <h1>Login</h1>
       <Form
-        onSubmit={readImageBeforeSubmit}
+        onSubmit={login}
         render={({ handleSubmit, form, submitting, pristine, values }) => (
           <form onSubmit={handleSubmit}>
             <div>

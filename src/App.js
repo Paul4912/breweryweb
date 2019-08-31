@@ -7,6 +7,7 @@ import HomeContainer from './features/Home/HomeContainer';
 import EnterProductContainer from './features/EnterProduct/EnterProductContainer';
 import ModifyProductContainer from './features/ModifyProduct/ModifyProductContainer';
 import LoginContainer from './features/Login/LoginContainer'
+import { PrivateRoute } from './utilities/PrivateRoute'
 import './App.scss'
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
       <Nav.Link href="">BrewDirect@gmail.com</Nav.Link>
     </Nav>
     <Nav>
-      <Nav.Link href="">Logout</Nav.Link>
+      <Nav.Link href="Login">Logout</Nav.Link>
     </Nav>
     </Navbar>
     </div>
@@ -34,9 +35,9 @@ function App() {
     <Router>
         <div className="Routing">
           <Route path="/Login" component={LoginContainer} />
-          <Route exact path="/" component={HomeContainer} />
-          <Route path="/EnterProduct" component={EnterProductContainer} />
-          <Route path="/ModifyProduct" component={ModifyProductContainer} />
+          <PrivateRoute exact path="/" component={HomeContainer} />
+          <PrivateRoute path="/EnterProduct" component={EnterProductContainer} />
+          <PrivateRoute path="/ModifyProduct" component={ModifyProductContainer} />
         </div>
     </Router>
     </div>) 
