@@ -6,6 +6,7 @@ import React from 'react'
 import HomeContainer from './features/Home/HomeContainer';
 import EnterProductContainer from './features/EnterProduct/EnterProductContainer';
 import ModifyProductContainer from './features/ModifyProduct/ModifyProductContainer';
+import LoginContainer from './features/Login/LoginContainer'
 import './App.scss'
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
     {topNavBar}
     <Router>
         <div className="Routing">
+          <Route path="/Login" component={LoginContainer} />
           <Route exact path="/" component={HomeContainer} />
           <Route path="/EnterProduct" component={EnterProductContainer} />
           <Route path="/ModifyProduct" component={ModifyProductContainer} />
